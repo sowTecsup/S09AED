@@ -121,5 +121,32 @@ public class LinqExamples : MonoBehaviour
 
 
     }
+    // public List<int> numbers = new List<int>() { 2,13,5,1,8,10,4};
+    [Button]
+    public void TestChainLinq()
+    {
+        var result =
+            numbers.Where(x => x != 1)
+            .OrderByDescending(x => x)
+            .Take(3)
+            .Select(x => x.ToString())
+            .ToList();
+    }
+
+    [Button]
+    public void testAll()
+    {
+        bool result =  numbers.All(x => x != 1);
+    }
+
+    public void testContains()
+    {
+        bool result = numbers.Contains(1);
+    }
+
+    public void TestCount()
+    {
+        int count = numbers.Count(x => x > 1);
+    }
 }
 
